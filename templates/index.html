@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Academic Performance Evaluation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>Academic Performance Evaluation</h2>
+    <form method="POST">
+        <input type="text" name="name" placeholder="Student Name" required>
+        <input type="number" step="0.1" name="cgpa" placeholder="CGPA (0-10)" required>
+        <input type="number" step="0.1" name="discipline" placeholder="Discipline (0-10)" required>
+        <input type="number" name="hackathons" placeholder="Hackathons" required>
+        <input type="number" name="internships" placeholder="Internships" required>
+        <input type="number" name="projects" placeholder="Projects" required>
+        <input type="number" name="research" placeholder="Research Papers" required>
+        <input type="number" name="certifications" placeholder="Certifications" required>
+        <input type="number" name="extra" placeholder="Extra-Curricular Activities" required>
+        <input type="number" name="sports" placeholder="Sports Level (0-3)" required>
+        <input type="number" name="leadership" placeholder="Leadership Roles" required>
+        <button type="submit">Evaluate</button>
+    </form>
+</div>
+</body>
+</html>

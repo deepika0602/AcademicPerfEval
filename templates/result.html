@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="container">
+    <h2>Evaluation Result</h2>
+    <p><strong>Name:</strong> {{ name }}</p>
+    <p><strong>Overall Score:</strong> {{ overall }}/10</p>
+    <p><strong>Category:</strong> {{ category }}</p>
+
+    <canvas id="scoreChart" width="300" height="300"></canvas>
+
+    <form id="pdfForm" method="POST" action="/download_pdf">
+        <input type="hidden" name="html" id="htmlContent">
+        <button type="submit">Download PDF</button>
+    </form>
+
+    <a href="/">Go Back</a>
+</div>
+
+<script>
+const scores = {{ scores | tojson }};
+const ctx = document.getElementById('scoreChart').getContext('2d');
+new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: Object.keys(scores),
+        datasets: [{
+            label: 'Scores',
+            data: Object.values(scores),
+            backgroundColor: '#667eea'
+        }]
+    }
+});
+
+// Capture HTML for PDF
+document.getElementById('pdfForm').addEventListener('submit', function() {
+    document.getElementById('htmlContent').value = document.documentElement.outerHTML;
+});
+</script>
+</body>
+</html>
