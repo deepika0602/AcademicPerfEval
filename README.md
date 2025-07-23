@@ -95,11 +95,3 @@ Acad/
 
 **Deepika Pujari**
 GitHub: [deepika0602](https://github.com/deepika0602)
-
-```
-
----
-
-✅ Do you want me to **add screenshots section** (with placeholders like `![Screenshot](screenshot.png)`) or keep it simple?  
-Should I **make it look super professional with badges (Flask, Python, HTML)** for GitHub?
-```
